@@ -6,9 +6,8 @@ const HeaderStyled = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 40px;
-  padding: 24px;
-  position: fixed;
+  margin-top: 40px;
+  padding-left: 40px;
   width: 100%;
 `;
 
@@ -18,11 +17,12 @@ const Logo = styled.img`
 `;
 
 const Line = styled.div`
-  width: calc(100% - 900px);
+  width: calc(100% - 910px);
   height: 1px;
   background-color: #979797;
-  position: absolute;
-  left: calc(48px + 24px + 24px);
+  position: relative;
+  left: 40px;
+  z-index: 1;
 `;
 
 const Nav = styled.nav`
@@ -42,6 +42,7 @@ function Header() {
   return (
     <HeaderStyled>
       <Logo src={logo} alt="logo" />
+      <Line />
       <Nav>
         <NavLink to="/">
           <strong>00</strong>HOME
@@ -56,7 +57,6 @@ function Header() {
           <strong>03</strong>TECHNOLOGY
         </NavLink>
       </Nav>
-      <Line />
     </HeaderStyled>
   );
 }
