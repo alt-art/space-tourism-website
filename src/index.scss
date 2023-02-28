@@ -10,3 +10,46 @@ body {
   background-color: #0b0d17;
   font-family: "Barlow Condensed", sans-serif;
 }
+
+/* Backgrounds based on the current page and screen size */
+.App {
+  height: 100vh;
+  width: 100vw;
+  &.home {
+    background: url("/background/home/desktop.jpg");
+    background-size: cover;
+    @media (max-width: 768px) {
+      background: url("/background/home/tablet.jpg");
+    }
+    @media (max-width: 375px) {
+      background: url("/background/home/mobile.jpg");
+    }
+  }
+  &.destination {
+    background: url("/background/destination/desktop.jpg");
+    background-size: cover;
+    @media (max-width: 768px) {
+      background: url("/background/destination/tablet.jpg");
+    }
+    @media (max-width: 375px) {
+      background: url("/background/destination/mobile.jpg");
+    }
+  }
+  &.crew {
+    background: url("/background/crew/desktop.jpg");
+    background-size: cover;
+    @media (max-width: 768px) {
+      background: url("/background/crew/tablet.jpg");
+    }
+  }
+  &.technology {
+    background: url("/background/technology/desktop.jpg");
+    background-size: cover;
+    @media (max-width: 768px) {
+      background: url("/background/technology/tablet.jpg");
+    }
+    @media (max-width: 375px) {
+      background: url("/background/technology/mobile.jpg");
+    }
+  }
+}
