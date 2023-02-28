@@ -25,7 +25,9 @@ interface NavLinkProps {
 
 function NavLink({ to, children }: NavLinkProps) {
   const location = useLocation();
-  const active = location.pathname === to;
+  const active =
+    (location.pathname.startsWith(to) && !(to.length === 1)) ||
+    location.pathname === to;
 
   return (
     <NavLinkStyled to={to} active={active}>
