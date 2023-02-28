@@ -1,6 +1,6 @@
 # Space Tourism
 
-This is a project taken from the [frontendmentor.io](https://www.frontendmentor.io/challenges/space-tourism-multipage-website-NnRfUZpPw) website to practice my skills in React, Typescript, and Styled Components.
+This is a project taken from the [frontendmentor.io](https://www.frontendmentor.io/challenges/space-tourism-multipage-website-gRWj1URZ3) website to practice my skills in React, Typescript, and Styled Components.
 
 ## Demo
 
