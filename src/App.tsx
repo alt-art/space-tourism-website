@@ -18,7 +18,6 @@ const AppStyles = styled.div`
   @media (max-width: 375px) {
     background-image: url('/background/${(props: AppStylesProps) => props.location}/mobile.jpg');
   }
-  overflow-y: auto;
 `;
 
 function App() {

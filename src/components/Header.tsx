@@ -9,6 +9,7 @@ const HeaderStyled = styled.header`
   margin-top: 40px;
   padding-left: 40px;
   width: 100%;
+  position: fixed;
 `;
 
 const Logo = styled.img`
@@ -19,7 +20,7 @@ const Logo = styled.img`
 const Line = styled.div`
   width: calc(100% - 910px);
   height: 1px;
-  background-color: #979797;
+  background-color: rgba(255, 255, 255, 0.2515);
   position: relative;
   left: 40px;
   z-index: 1;

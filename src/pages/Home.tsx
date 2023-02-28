@@ -5,8 +5,7 @@ const HomeStyles = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 100vw;
-  height: calc(100% - (96px + 40px));
+  height: 100%;
 `;
 
 const TextContainer = styled.div`
