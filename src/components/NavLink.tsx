@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { useLocation, Link } from "react-router-dom";
+import styled from 'styled-components';
+import { useLocation, Link } from 'react-router-dom';
 
 interface NavLinkStyledProps {
   active: boolean;
@@ -10,12 +10,21 @@ const NavLinkStyled = styled(Link)<NavLinkStyledProps>`
   display: flex;
   align-items: center;
   color: #fff;
+  font-size: 16px;
   text-decoration: none;
+  transition: box-shadow 0.2s ease-in-out;
   ${({ active }) =>
     active &&
     `
-        box-shadow: inset 0px -2px 0px #fff;
+    box-shadow: inset 0px -2px 0px #fff;
     `}
+  &:hover {
+    ${({ active }) =>
+      !active &&
+      `
+      box-shadow: inset 0px -2px 0px #ffffff7f;
+      `}
+  }
 `;
 
 interface NavLinkProps {
