@@ -23,7 +23,6 @@ const AppStyles = styled.div`
 
 function App() {
   const location = useLocation();
-  console.log(location.pathname);
   return (
     <AppStyles
       location={location.pathname === '/' ? 'home' : location.pathname.split('/')[1]}
