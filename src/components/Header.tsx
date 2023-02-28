@@ -18,7 +18,7 @@ const Logo = styled.img`
 `;
 
 const Line = styled.div`
-  width: 473px;
+  width: calc(100% - 900px);
   height: 1px;
   background-color: #979797;
   position: absolute;
