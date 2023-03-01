@@ -10,6 +10,10 @@ const HomeStyles = styled.div`
 
 const TextContainer = styled.div`
   width: 450px;
+  p {
+    line-height: 32px;
+    font-size: 20px;
+  }
 `;
 
 const CircleText = styled.div`

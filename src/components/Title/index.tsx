@@ -1,33 +1,34 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 interface StyledTitleProps {
-  heading: "h1" | "h2" | "h3" | "h4" | "h5";
+  heading: 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
 }
 
 const Title = styled.h1<StyledTitleProps>`
-  font-size: ${({ heading = "h1" }) => {
+  ${({ heading = 'h1' }) => {
     switch (heading) {
-      case "h1":
-        return "150px";
-      case "h2":
-        return "100px";
-      case "h3":
-        return "56px";
-      case "h4":
-        return "32px";
-      case "h5":
-        return "28px";
+      case 'h1':
+        return 'font-size: 150px';
+      case 'h2':
+        return 'font-size: 100px';
+      case 'h3':
+        return 'font-size: 56px';
+      case 'h4':
+        return 'font-size: 32px';
+      case 'h5':
+        return `font-size: 24px;
+                letter-spacing: 4.72px;`;
       default:
-        return "150px";
+        return 'font-size: 150px';
     }
   }};
   color: #fff;
-  font-family: ${({ heading = "h1" }) => {
+  font-family: ${({ heading = 'h1' }) => {
     switch (heading) {
-      case "h5":
-        return "Barlow Condensed";
+      case 'h5':
+        return 'Barlow Condensed';
       default:
-        return "Bellefair";
+        return 'Bellefair';
     }
   }};
 `;
