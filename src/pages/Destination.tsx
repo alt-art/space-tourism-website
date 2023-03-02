@@ -36,8 +36,10 @@ const TextContainer = styled.div`
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
-  height: 34px;
   width: 250px;
+  a {
+    padding: 1rem 0;
+  }
 `;
 
 const Line = styled.hr`
