@@ -15,22 +15,22 @@ const Title = styled.h1<StyledTitleProps>`
         return 'font-size: 56px';
       case 'h4':
         return 'font-size: 32px';
-      case 'h5':
-        return `font-size: 24px;
-                letter-spacing: 4.72px;`;
       default:
         return 'font-size: 150px';
     }
   }};
   color: #fff;
-  font-family: ${({ heading = 'h1' }) => {
-    switch (heading) {
-      case 'h5':
-        return 'Barlow Condensed';
-      default:
-        return 'Bellefair';
-    }
-  }};
+  font-family: 'Bellefair';
+`;
+
+export const SubHeading = styled.h2`
+  font-size: 28px;
+  color: #fff;
+  font-family: 'Barlow Condensed';
+  letter-spacing: 4.72px;
+  strong {
+    color: #ffffff3f;
+  }
 `;
 
 export default Title;

@@ -1,12 +1,6 @@
-import styled from "styled-components";
-import Title from "../components/Title";
-
-const HomeStyles = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  height: 100%;
-`;
+import styled from 'styled-components';
+import Container from '../components/Container';
+import Title, { SubHeading } from '../components/Title';
 
 const TextContainer = styled.div`
   width: 450px;
@@ -22,13 +16,13 @@ const CircleText = styled.div`
   border-radius: 50%;
   background-color: #fff;
   color: #0b0d17;
-  font-family: "Bellefair", serif;
+  font-family: 'Bellefair', serif;
   display: flex;
   align-items: center;
   justify-content: center;
 
   &::before {
-    content: "";
+    content: '';
     width: calc(247px);
     height: calc(247px);
     border-radius: 50%;
@@ -37,7 +31,7 @@ const CircleText = styled.div`
   }
 
   &:hover::before {
-    content: "";
+    content: '';
     width: calc(247px);
     height: calc(247px);
     border-radius: 50%;
@@ -58,21 +52,20 @@ const CircleText = styled.div`
 
 function Home() {
   return (
-    <HomeStyles>
+    <Container>
       <TextContainer>
-        <Title heading="h5">SO, YOU WANT TO TRAVEL TO</Title>
+        <SubHeading>SO, YOU WANT TO TRAVEL TO</SubHeading>
         <Title heading="h1">SPACE</Title>
         <p>
-          Let’s face it; if you want to go to space, you might as well genuinely
-          go to outer space and not hover kind of on the edge of it. Well sit
-          back, and relax because we’ll give you a truly out of this world
-          experience!
+          Let’s face it; if you want to go to space, you might as well genuinely go to
+          outer space and not hover kind of on the edge of it. Well sit back, and relax
+          because we’ll give you a truly out of this world experience!
         </p>
       </TextContainer>
       <CircleText>
         <h1>EXPLORE</h1>
       </CircleText>
-    </HomeStyles>
+    </Container>
   );
 }
 
