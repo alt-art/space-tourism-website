@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 import App from "./App";
 import "./index.scss";
+import Crew from './pages/Crew';
 import Destination from './pages/Destination';
 import Home from "./pages/Home";
 import data from './utils/data.json';
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
           return planet;
         },
         errorElement: <div>Not found</div>,
+      },
+      {
+        path: "crew",
+        element: <Crew />,
       }
     ],
   },

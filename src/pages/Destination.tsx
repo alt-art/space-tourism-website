@@ -1,18 +1,16 @@
 import { useLoaderData } from 'react-router-dom';
 import styled from 'styled-components';
-import { ContainerColumn } from '../components/Container';
+import { ContainerCard, ContainerColumn } from '../components/Container';
 import NavLink from '../components/NavLink';
 import Title, { SubHeading } from '../components/Title';
 
 const PlanetStyles = styled.img`
   width: 445px;
   height: 445px;
-`;
-
-const PlanetsContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
-  margin: 4rem 0;
+  @media (max-height: 700px) {
+    width: 300px;
+    height: 300px;
+  }
 `;
 
 const TextContainer = styled.div`
@@ -73,7 +71,7 @@ function Destination() {
       <SubHeading>
         <strong>01</strong> PICK YOUR DESTINATION
       </SubHeading>
-      <PlanetsContainer>
+      <ContainerCard>
         <PlanetStyles src={`/${planet.images.webp}`} alt={planet.name} />
         <TextContainer>
           <Nav>
@@ -96,7 +94,7 @@ function Destination() {
             </AnalyticsContainer>
           </Analytics>
         </TextContainer>
-      </PlanetsContainer>
+      </ContainerCard>
     </ContainerColumn>
   );
 }

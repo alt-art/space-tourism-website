@@ -1,6 +1,14 @@
 import styled from 'styled-components';
 import Title, { SubHeading } from '../components/Title';
 
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100%;
+  width: 100%;
+`;
+
 const TextContainer = styled.div`
   width: 450px;
   p {
@@ -51,7 +59,7 @@ const CircleText = styled.div`
 
 function Home() {
   return (
-    <>
+    <Container>
       <TextContainer>
         <SubHeading>SO, YOU WANT TO TRAVEL TO</SubHeading>
         <Title heading="h1">SPACE</Title>
@@ -64,7 +72,7 @@ function Home() {
       <CircleText>
         <h1>EXPLORE</h1>
       </CircleText>
-    </>
+    </Container>
   );
 }
 
