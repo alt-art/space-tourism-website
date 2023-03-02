@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Container from '../components/Container';
 import Title, { SubHeading } from '../components/Title';
 
 const TextContainer = styled.div`
@@ -52,7 +51,7 @@ const CircleText = styled.div`
 
 function Home() {
   return (
-    <Container>
+    <>
       <TextContainer>
         <SubHeading>SO, YOU WANT TO TRAVEL TO</SubHeading>
         <Title heading="h1">SPACE</Title>
@@ -65,7 +64,7 @@ function Home() {
       <CircleText>
         <h1>EXPLORE</h1>
       </CircleText>
-    </Container>
+    </>
   );
 }
 

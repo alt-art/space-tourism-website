@@ -7,4 +7,11 @@ const Container = styled.div`
   height: 100%;
 `;
 
+export const ContainerColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 10rem;
+`;
+
 export default Container;

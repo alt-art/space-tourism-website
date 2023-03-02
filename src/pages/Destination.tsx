@@ -1,19 +1,8 @@
 import { useLoaderData } from 'react-router-dom';
 import styled from 'styled-components';
-import Container from '../components/Container';
+import { ContainerColumn } from '../components/Container';
 import NavLink from '../components/NavLink';
 import Title, { SubHeading } from '../components/Title';
-
-const ContainerBase = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin: 0 10rem;
-  p {
-    line-height: 32px;
-    font-size: 20px;
-  }
-`;
 
 const PlanetStyles = styled.img`
   width: 445px;
@@ -43,7 +32,7 @@ const Nav = styled.nav`
 `;
 
 const Line = styled.hr`
-  color: #383B4B;
+  color: #383b4b;
   margin: 2rem 0;
 `;
 
@@ -55,7 +44,7 @@ const Analytics = styled.div`
 
 const AnalyticsLabel = styled.p`
   font-size: 14px;
-  color: #D0D6F9;
+  color: #d0d6f9;
 `;
 
 const AnalyticsContainer = styled.div`
@@ -80,37 +69,35 @@ function Destination() {
   const planet = useLoaderData() as Planet;
 
   return (
-    <Container>
-      <ContainerBase>
-        <SubHeading>
-          <strong>01</strong> PICK YOUR DESTINATION
-        </SubHeading>
-        <PlanetsContainer>
-          <PlanetStyles src={`/${planet.images.webp}`} alt={planet.name} />
-          <TextContainer>
-            <Nav>
-              <NavLink to="/destination/moon">MOON</NavLink>
-              <NavLink to="/destination/mars">MARS</NavLink>
-              <NavLink to="/destination/europa">EUROPA</NavLink>
-              <NavLink to="/destination/titan">TITAN</NavLink>
-            </Nav>
-            <Title heading='h2'>{planet.name.toUpperCase()}</Title>
-            <p>{planet.description}</p>
-            <Line />
-            <Analytics>
-              <AnalyticsContainer>
-                <AnalyticsLabel>AVG. DISTANCE</AnalyticsLabel>
-                <Title heading='h4'>{planet.distance.toUpperCase()}</Title>
-              </AnalyticsContainer>
-              <AnalyticsContainer>
-                <AnalyticsLabel>EST. TRAVEL TIME</AnalyticsLabel>
-                <Title heading='h4'>{planet.travel.toUpperCase()}</Title>
-              </AnalyticsContainer>
-            </Analytics>
-          </TextContainer>
-        </PlanetsContainer>
-      </ContainerBase>
-    </Container>
+    <ContainerColumn>
+      <SubHeading>
+        <strong>01</strong> PICK YOUR DESTINATION
+      </SubHeading>
+      <PlanetsContainer>
+        <PlanetStyles src={`/${planet.images.webp}`} alt={planet.name} />
+        <TextContainer>
+          <Nav>
+            <NavLink to="/destination/moon">MOON</NavLink>
+            <NavLink to="/destination/mars">MARS</NavLink>
+            <NavLink to="/destination/europa">EUROPA</NavLink>
+            <NavLink to="/destination/titan">TITAN</NavLink>
+          </Nav>
+          <Title heading="h2">{planet.name.toUpperCase()}</Title>
+          <p>{planet.description}</p>
+          <Line />
+          <Analytics>
+            <AnalyticsContainer>
+              <AnalyticsLabel>AVG. DISTANCE</AnalyticsLabel>
+              <Title heading="h4">{planet.distance.toUpperCase()}</Title>
+            </AnalyticsContainer>
+            <AnalyticsContainer>
+              <AnalyticsLabel>EST. TRAVEL TIME</AnalyticsLabel>
+              <Title heading="h4">{planet.travel.toUpperCase()}</Title>
+            </AnalyticsContainer>
+          </Analytics>
+        </TextContainer>
+      </PlanetsContainer>
+    </ContainerColumn>
   );
 }
 

@@ -1,5 +1,6 @@
 import { Outlet, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
+import Container from './components/Container';
 import Header from './components/Header';
 
 interface AppStylesProps {
@@ -27,7 +28,9 @@ function App() {
       location={location.pathname === '/' ? 'home' : location.pathname.split('/')[1]}
     >
       <Header />
-      <Outlet />
+      <Container>
+        <Outlet />
+      </Container>
     </AppStyles>
   );
 }
