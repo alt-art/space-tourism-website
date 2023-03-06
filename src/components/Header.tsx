@@ -10,6 +10,7 @@ const HeaderStyled = styled.header`
   padding-left: 40px;
   width: 100%;
   position: fixed;
+  z-index: 1;
 `;
 
 const Logo = styled.img`

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styled from 'styled-components';
+import { motion, useAnimationControls } from 'framer-motion';
 import { ContainerCard, ContainerColumn } from '../components/Container';
 import Title, { SubHeading } from '../components/Title';
 import data from '../utils/data.json';
@@ -12,7 +13,7 @@ const ContainerCardStyled = styled(ContainerCard)`
   justify-content: flex-start;
 `;
 
-const TextContainer = styled.div`
+const TextContainer = styled(motion.div)`
   width: 490px;
 `;
 
@@ -33,13 +34,15 @@ const NavLink = styled.button<NavLinkProps>`
   justify-content: center;
   align-items: center;
   background: none;
-  border: 1px solid #FFFFFF;
+  border: 1px solid #ffffff;
   width: 80px;
   height: 80px;
   border-radius: 50%;
   transition: all 0.5s ease;
   cursor: pointer;
-  ${({ active }) => active && `
+  ${({ active }) =>
+    active &&
+    `
     background: #fff;
     h1 {
       color: #000;
@@ -56,7 +59,7 @@ interface TechnologyImageProps {
   image: TechnologyImage;
 }
 
-const TechnologyImage = styled.div<TechnologyImageProps>`
+const TechnologyImage = styled(motion.div)<TechnologyImageProps>`
   position: absolute;
   background-image: url(${(props: { image: TechnologyImage }) => props.image.portrait});
   background-size: cover;
@@ -71,8 +74,18 @@ function Technology() {
   const technology = data.technology;
   const [active, setActive] = useState(0);
 
+  const animate = useAnimationControls();
+
   const handleClick = (number: number) => {
-    setActive(number);
+    if (number === active) return;
+    animate.start({ y: -800, opacity: 0 }, { duration: 0.2 });
+    setTimeout(() => {
+      setActive(number);
+      animate.start({ y: 800, opacity: 0 }, { duration: 0 });
+      setTimeout(() => {
+        animate.start({ y: 0, opacity: 1 }, { duration: 0.2 });
+      }, 200);
+    }, 200);
   };
 
   return (
@@ -81,19 +94,27 @@ function Technology() {
         <strong>03</strong> SPACE LAUNCH 101
       </SubHeading>
       <ContainerCardStyled>
+        <TechnologyImage
+          image={technology[active].images}
+          animate={animate}
+          transition={{ duration: 0.5 }}
+        />
         <Nav>
-            <NavLink onClick={() => handleClick(0)} active={active === 0}><Title heading="h4">1</Title></NavLink>
-            <NavLink onClick={() => handleClick(1)} active={active === 1}><Title heading="h4">2</Title></NavLink>
-            <NavLink onClick={() => handleClick(2)} active={active === 2}><Title heading="h4">3</Title></NavLink>
+          <NavLink onClick={() => handleClick(0)} active={active === 0}>
+            <Title heading="h4">1</Title>
+          </NavLink>
+          <NavLink onClick={() => handleClick(1)} active={active === 1}>
+            <Title heading="h4">2</Title>
+          </NavLink>
+          <NavLink onClick={() => handleClick(2)} active={active === 2}>
+            <Title heading="h4">3</Title>
+          </NavLink>
         </Nav>
-        <TextContainer>
+        <TextContainer animate={animate} transition={{ duration: 0.5 }}>
           <p>THE TERMINOLOGY</p>
           <Title heading="h3">{technology[active].name.toUpperCase()}</Title>
-          <p>
-            {technology[active].description}
-          </p>
+          <p>{technology[active].description}</p>
         </TextContainer>
-        <TechnologyImage image={technology[active].images} />
       </ContainerCardStyled>
     </Container>
   );
