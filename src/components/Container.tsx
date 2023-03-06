@@ -18,7 +18,7 @@ export const ContainerCard = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin: 4rem 0;
+  height: 100%;
 `;
 
 export default Container;

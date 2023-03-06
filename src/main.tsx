@@ -6,6 +6,7 @@ import "./index.scss";
 import Crew from './pages/Crew';
 import Destination from './pages/Destination';
 import Home from "./pages/Home";
+import Technology from './pages/Technology';
 import data from './utils/data.json';
 
 const router = createBrowserRouter([
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "crew",
         element: <Crew />,
+      },
+      {
+        path: "technology",
+        element: <Technology />,
       }
     ],
   },
