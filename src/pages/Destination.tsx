@@ -7,7 +7,20 @@ import Title, { SubHeading } from '../components/Title';
 const PlanetStyles = styled.img`
   width: 445px;
   height: 445px;
+  margin-right: 50px;
+
   @media (max-height: 700px) {
+    width: 300px;
+    height: 300px;
+  }
+
+  @media (max-width: 960px) {
+    width: 300px;
+    height: 300px;
+    margin-right: 20px;
+  }
+
+  @media (max-width: 768px) {
     width: 300px;
     height: 300px;
   }
@@ -18,6 +31,11 @@ const TextContainer = styled.div`
   height: 344px;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 768px) {
+    align-items: center;
+    margin-bottom: 70px;
+  }
 `;
 
 const Nav = styled.nav`

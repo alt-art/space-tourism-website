@@ -19,6 +19,11 @@ export const ContainerCard = styled.div`
   justify-content: space-around;
   align-items: center;
   height: 100%;
+
+  @media (max-width: 768px) {
+    display: block;
+    text-align: center;
+  }
 `;
 
 export default Container;
