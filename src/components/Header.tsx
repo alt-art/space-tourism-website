@@ -25,6 +25,10 @@ const Line = styled.div`
   position: relative;
   left: 40px;
   z-index: 1;
+
+  @media (max-width: 1024px) {
+    width: calc(100% - 530px);
+  }
 `;
 
 const Nav = styled.nav`
@@ -37,6 +41,10 @@ const Nav = styled.nav`
   background-color: rgba(255, 255, 255, 0.04);
   strong {
     margin-right: 8px;
+  }
+
+  @media (max-width: 1024px) {
+    width: 450px;
   }
 `;
 

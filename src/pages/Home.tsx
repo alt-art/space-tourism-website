@@ -7,6 +7,10 @@ const Container = styled.div`
   justify-content: space-evenly;
   height: 100%;
   width: 100%;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const TextContainer = styled.div`
@@ -14,6 +18,10 @@ const TextContainer = styled.div`
   p {
     line-height: 32px;
     font-size: 20px;
+  }
+
+  @media (max-width: 768px) {
+    text-align: center;
   }
 `;
 
