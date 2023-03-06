@@ -111,7 +111,7 @@ function Technology() {
           </NavLink>
         </Nav>
         <TextContainer animate={animate} transition={{ duration: 0.5 }}>
-          <p>THE TERMINOLOGY</p>
+          <p>THE TERMINOLOGY...</p>
           <Title heading="h3">{technology[active].name.toUpperCase()}</Title>
           <p>{technology[active].description}</p>
         </TextContainer>
