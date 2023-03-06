@@ -4,14 +4,14 @@ const Container = styled.div`
   display: flex;
   justify-content: space-around;
   height: 100%;
-  padding-top: 10rem;
+  padding-top: 160px;
 `;
 
 export const ContainerColumn = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin: 0 10rem;
+  margin: 0 160px;
 `;
 
 export const ContainerCard = styled.div`

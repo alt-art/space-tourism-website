@@ -25,13 +25,13 @@ const Nav = styled.nav`
   justify-content: space-between;
   width: 250px;
   a {
-    padding: 1rem 0;
+    padding: 16px 0;
   }
 `;
 
 const Line = styled.hr`
   color: #383b4b;
-  margin: 2rem 0;
+  margin: 32px 0;
 `;
 
 const Analytics = styled.div`

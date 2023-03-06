@@ -14,7 +14,7 @@ const ContainerSlide = styled.div`
 
 const TextContainer = styled(motion.div)`
   display: flex;
-  margin-top: 2rem;
+  margin-top: 32px;
   height: 200px;
   flex-direction: column;
   justify-content: space-between;
@@ -27,7 +27,7 @@ const CrewImage = styled(motion.img)`
   position: fixed;
   bottom: 0;
   right: 10%;
-  height: calc(100vh - 10rem);
+  height: calc(100vh - 160px);
 `;
 
 const RoleText = styled.h2`
@@ -39,7 +39,7 @@ const RoleText = styled.h2`
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
-  margin: 1rem 0;
+  margin: 16px 0;
   width: 132px;
 `;
 
