@@ -18,6 +18,11 @@ const TopTitle = styled.h2`
   color: #fff;
   font-family: 'Barlow Condensed';
   letter-spacing: 4.72px;
+
+  @media (max-width: 480px) {
+    font-size: 16px;
+    letter-spacing: 2.72px;
+  }
 `;
 
 const TextContainer = styled.div`
@@ -29,6 +34,13 @@ const TextContainer = styled.div`
 
   @media (max-width: 768px) {
     text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    width: 300px;
+    p {
+      font-size: 16px;
+    }
   }
 `;
 
@@ -50,6 +62,11 @@ const CircleText = styled.div`
     border-radius: 50%;
     background-color: #ffffff65;
     position: absolute;
+
+    @media (max-width: 480px) {
+      width: calc(150px);
+      height: calc(150px);
+    }
   }
 
   &:hover::before {
@@ -60,6 +77,20 @@ const CircleText = styled.div`
     background-color: #ffffff65;
     position: absolute;
     animation: circle 2s ease-in-out infinite reverse;
+
+    @media (max-width: 480px) {
+      width: calc(150px);
+      height: calc(150px);
+    }
+  }
+
+  @media (max-width: 480px) {
+    width: 150px;
+    height: 150px;
+
+    h1 {
+      font-size: 20px;
+    }
   }
 
   @keyframes circle {

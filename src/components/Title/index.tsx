@@ -36,6 +36,23 @@ const Title = styled.h1<StyledTitleProps>`
       }
     }};
   }
+
+  @media (max-width: 480px) {
+    ${({ heading = 'h1' }) => {
+      switch (heading) {
+        case 'h1':
+          return 'font-size: 80px';
+        case 'h2':
+          return 'font-size: 60px';
+        case 'h3':
+          return 'font-size: 32px';
+        case 'h4':
+          return 'font-size: 24px';
+        default:
+          return 'font-size: 80px';
+      }
+    }};
+  }
 `;
 
 export const SubHeading = styled.h2`

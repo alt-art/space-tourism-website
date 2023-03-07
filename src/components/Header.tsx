@@ -1,6 +1,8 @@
+import { useEffect, useMemo, useState } from 'react';
 import styled from "styled-components";
 import logo from "../assets/icons/logo.svg";
 import NavLink from "./NavLink";
+import hamburgerIcon from "../assets/icons/icon-hamburger.svg";
 
 const HeaderStyled = styled.header`
   display: flex;
@@ -48,11 +50,30 @@ const Nav = styled.nav`
   }
 `;
 
+const NavModalButton = styled.button`
+  background: url(${hamburgerIcon}) no-repeat;
+  background-position: center;
+  background-size: cover;
+  border: none;
+  width: 30px;
+  height: 30px;
+  margin-right: 40px;
+`;
+
 function Header() {
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    window.addEventListener("resize",() => setWidth(window.innerWidth));
+  }, []);
+  
+  const isMobile = useMemo(() => width < 535, [width]);
+
   return (
     <HeaderStyled>
       <Logo src={logo} alt="logo" />
       <Line />
+      {!isMobile ? (
       <Nav>
         <NavLink to="/">
           <strong>00</strong>HOME
@@ -67,6 +88,9 @@ function Header() {
           <strong>03</strong>TECHNOLOGY
         </NavLink>
       </Nav>
+      ) : (
+        <NavModalButton />
+      )}
     </HeaderStyled>
   );
 }
