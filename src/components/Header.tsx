@@ -67,6 +67,7 @@ function Header() {
 
   useEffect(() => {
     window.addEventListener("resize",() => setWidth(window.innerWidth));
+    return () => window.removeEventListener("resize", () => setWidth(window.innerWidth));
   }, []);
   
   const isMobile = useMemo(() => width < 535, [width]);
