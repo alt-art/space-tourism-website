@@ -1,3 +1,5 @@
+import { motion, useAnimationControls } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Title from '../components/Title';
 
@@ -44,7 +46,7 @@ const TextContainer = styled.div`
   }
 `;
 
-const CircleText = styled.div`
+const CircleText = styled(motion.div)`
   width: 247px;
   height: 247px;
   border-radius: 50%;
@@ -54,35 +56,7 @@ const CircleText = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  &::before {
-    content: '';
-    width: calc(247px);
-    height: calc(247px);
-    border-radius: 50%;
-    background-color: #ffffff65;
-    position: absolute;
-
-    @media (max-width: 480px) {
-      width: calc(150px);
-      height: calc(150px);
-    }
-  }
-
-  &:hover::before {
-    content: '';
-    width: calc(247px);
-    height: calc(247px);
-    border-radius: 50%;
-    background-color: #ffffff65;
-    position: absolute;
-    animation: circle 2s ease-in-out infinite reverse;
-
-    @media (max-width: 480px) {
-      width: calc(150px);
-      height: calc(150px);
-    }
-  }
+  cursor: pointer;
 
   @media (max-width: 480px) {
     width: 150px;
@@ -92,18 +66,45 @@ const CircleText = styled.div`
       font-size: 20px;
     }
   }
-
-  @keyframes circle {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.3);
-    }
-  }
 `;
 
 function Home() {
+  const navigate = useNavigate();
+  const animateCircle = useAnimationControls();
+
+  function handleCircleClick() {
+    animateCircle.start({
+      scale: 200,
+      backgroundColor: '#0b0d17',
+      transition: {
+        duration: 1,
+      },
+    });
+    setTimeout(() => {
+      navigate('/destination/moon');
+    }, 1300);
+  }
+
+  function handleCircleHover() {
+    animateCircle.start({
+      boxShadow: '0px 0px 0px 40px #ffffff68',
+      transition: {
+        duration: 1,
+        repeat: Infinity,
+        repeatType: 'reverse',
+      },
+    });
+  }
+
+  function handleCircleHoverEnd() {
+    animateCircle.start({
+      boxShadow: '0px 0px 0px 0px #fff',
+      transition: {
+        duration: 0.5,
+      },
+    });
+  }
+
   return (
     <Container>
       <TextContainer>
@@ -115,7 +116,12 @@ function Home() {
           because we’ll give you a truly out of this world experience!
         </p>
       </TextContainer>
-      <CircleText>
+      <CircleText
+        animate={animateCircle}
+        onClick={handleCircleClick}
+        onHoverStart={handleCircleHover}
+        onHoverEnd={handleCircleHoverEnd}
+      >
         <h1>EXPLORE</h1>
       </CircleText>
     </Container>
