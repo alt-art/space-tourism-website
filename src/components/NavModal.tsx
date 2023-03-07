@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useContext } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import closeIcon from '../assets/icons/icon-close.svg';
 import { ModalContext } from '../context/ModalContext';
@@ -31,13 +31,29 @@ const NavModalCloseButton = styled.button`
 `;
 
 function NavModal() {
-  const { setIsOpenedModal } = useContext(ModalContext);
+  const ref = useRef<HTMLDivElement>(null);
+  const { setIsOpenedModal, isOpenedModal } = useContext(ModalContext);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (ref.current && isOpenedModal && !ref.current.contains(event.target as Node)) {
+        setIsOpenedModal(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [ref]);
+
   return (
     <NavModalStyle
       initial={{ x: '100%' }}
       animate={{ x: 0 }}
       exit={{ x: '100%' }}
       transition={{ duration: 0.2 }}
+      ref={ref}
     >
       <NavModalCloseButton onClick={() => setIsOpenedModal(false)} />
       <NavLinkModal to="/">
