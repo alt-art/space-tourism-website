@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 interface StyledTitleProps {
-  heading: 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
+  heading?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
 }
 
 const Title = styled.h1<StyledTitleProps>`
@@ -21,6 +21,21 @@ const Title = styled.h1<StyledTitleProps>`
   }};
   color: #fff;
   font-family: 'Bellefair';
+
+  @media (max-width: 768px) {
+    ${({ heading = 'h1' }) => {
+      switch (heading) {
+        case 'h2':
+          return 'font-size: 80px';
+        case 'h3':
+          return 'font-size: 40px';
+        case 'h4':
+          return 'font-size: 28px';
+        default:
+          return 'font-size: 150px';
+      }
+    }};
+  }
 `;
 
 export const SubHeading = styled.h2`
@@ -30,6 +45,10 @@ export const SubHeading = styled.h2`
   letter-spacing: 4.72px;
   strong {
     color: #ffffff3f;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 20px;
   }
 `;
 

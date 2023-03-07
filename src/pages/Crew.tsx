@@ -10,16 +10,25 @@ const ContainerSlide = styled.div`
   height: 100%;
   flex-direction: column;
   justify-content: space-around;
+
+  @media (max-width: 768px) {
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+  }
 `;
 
 const TextContainer = styled(motion.div)`
   display: flex;
   margin-top: 32px;
-  height: 200px;
   flex-direction: column;
   justify-content: space-between;
   p {
     width: 444px;
+  }
+
+  @media (max-width: 768px) {
+    text-align: center;
   }
 `;
 
@@ -28,6 +37,15 @@ const CrewImage = styled(motion.img)`
   bottom: 0;
   right: 10%;
   height: calc(100vh - 160px);
+  @media (max-width: 1338px) {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    position: static;
+    display: block;
+    height: 100%;
+  }
 `;
 
 const RoleText = styled.h2`
@@ -58,6 +76,10 @@ const NavLink = styled.button<NavLinkProps>`
 
   &:hover {
     background-color: #fff;
+  }
+
+  @media (max-width: 768px) {
+    margin: 16px 0;
   }
 `;
 
