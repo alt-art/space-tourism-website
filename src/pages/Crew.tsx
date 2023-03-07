@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import { motion, useAnimationControls } from 'framer-motion';
 import { ContainerColumn } from '../components/Container';
@@ -95,17 +95,6 @@ function Crew() {
   const textAnimate = useAnimationControls();
   const imageAnimate = useAnimationControls();
 
-  useEffect(() => {
-    textAnimate.start({
-      opacity: 1,
-      x: 0,
-    });
-    imageAnimate.start({
-      opacity: 1,
-      x: 0,
-    });
-  }, []);
-
   function handleActiveCrew(number: number) {
     textAnimate.start({
       opacity: 0,
@@ -137,7 +126,6 @@ function Crew() {
       <ContainerSlide>
         <TextContainer
           animate={textAnimate}
-          initial={{ opacity: 0, x: -1000 }}
           transition={{ duration: 0.2 }}
         >
           <RoleText>{crew[activeCrew].role.toUpperCase()}</RoleText>
@@ -150,7 +138,7 @@ function Crew() {
           <NavLink onClick={() => handleActiveCrew(2)} active={activeCrew === 2} />
           <NavLink onClick={() => handleActiveCrew(3)} active={activeCrew === 3} />
         </Nav>
-        <CrewImage src={crew[activeCrew].images.webp} alt={crew[activeCrew].name} animate={imageAnimate} initial={{ opacity: 0, x: 1000 }} transition={{ duration: 0.2 }} />
+        <CrewImage src={crew[activeCrew].images.webp} alt={crew[activeCrew].name} animate={imageAnimate} transition={{ duration: 0.2 }} />
       </ContainerSlide>
     </ContainerColumn>
   );
