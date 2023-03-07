@@ -20,14 +20,17 @@ body {
   color: #d0d6f9;
   font-size: 20px;
   overflow-x: hidden;
+  overflow-y: hidden;
   height: 100%;
 
   @media (max-height: 900px) and (orientation: portrait) {
     height: max-content;
+    overflow-y: auto;
   }
   
   @media (max-height: 600px) and (orientation: landscape) {
     height: max-content;
+    overflow-y: auto;
   }
 
   &.home {
