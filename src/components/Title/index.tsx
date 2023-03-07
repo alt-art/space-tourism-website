@@ -43,13 +43,13 @@ export const SubHeading = styled.h2`
   color: #fff;
   font-family: 'Barlow Condensed';
   letter-spacing: 4.72px;
-  margin: 0 160px;
+  margin-left: 160px;
   strong {
     color: #ffffff3f;
   }
 
   @media (max-width: 1300px) {
-    margin: 0 80px;
+    margin-left: 80px;
   }
 
   @media (max-width: 768px) {

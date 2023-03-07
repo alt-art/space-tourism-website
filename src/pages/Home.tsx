@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Title, { SubHeading } from '../components/Title';
+import Title from '../components/Title';
 
 const Container = styled.div`
   display: flex;
@@ -11,6 +11,13 @@ const Container = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
   }
+`;
+
+const TopTitle = styled.h2`
+  font-size: 28px;
+  color: #fff;
+  font-family: 'Barlow Condensed';
+  letter-spacing: 4.72px;
 `;
 
 const TextContainer = styled.div`
@@ -69,7 +76,7 @@ function Home() {
   return (
     <Container>
       <TextContainer>
-        <SubHeading>SO, YOU WANT TO TRAVEL TO</SubHeading>
+        <TopTitle>SO, YOU WANT TO TRAVEL TO</TopTitle>
         <Title heading="h1">SPACE</Title>
         <p>
           Let’s face it; if you want to go to space, you might as well genuinely go to
