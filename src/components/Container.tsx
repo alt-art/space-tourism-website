@@ -5,6 +5,10 @@ const Container = styled.div`
   justify-content: space-around;
   height: 100%;
   padding-top: 160px;
+
+  @media (max-width: 480px) {
+    padding-top: 130px;
+  }
 `;
 
 export const ContainerColumn = styled.div`
@@ -27,6 +31,10 @@ export const ContainerCard = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
     text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    justify-content: center;
   }
 `;
 

@@ -72,6 +72,12 @@ export const SubHeading = styled.h2`
   @media (max-width: 768px) {
     font-size: 20px;
   }
+
+  @media (max-width: 480px) {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+  }
 `;
 
 export default Title;

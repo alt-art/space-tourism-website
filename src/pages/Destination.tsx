@@ -21,8 +21,14 @@ const PlanetStyles = styled.img`
   }
 
   @media (max-width: 768px) {
+    margin: 0;
     width: 300px;
     height: 300px;
+  }
+
+  @media (max-width: 480px) {
+    width: 170px;
+    height: 170px;
   }
 `;
 
@@ -35,6 +41,10 @@ const TextContainer = styled.div`
   @media (max-width: 768px) {
     align-items: center;
     margin-bottom: 70px;
+  }
+
+  @media (max-width: 480px) {
+    width: 327px;
   }
 `;
 
@@ -50,12 +60,20 @@ const Nav = styled.nav`
 const Line = styled.hr`
   color: #383b4b;
   margin: 32px 0;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const Analytics = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
+
+  @media (max-width: 480px) {
+    display: block;
+  }
 `;
 
 const AnalyticsLabel = styled.p`
@@ -66,6 +84,10 @@ const AnalyticsLabel = styled.p`
 const AnalyticsContainer = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 480px) {
+    padding: 16px 0;
+  }
 `;
 
 interface PlanetImages {
