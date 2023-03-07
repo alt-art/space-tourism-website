@@ -11,6 +11,14 @@ const Container = styled(ContainerColumn)`
 
 const ContainerCardStyled = styled(ContainerCard)`
   justify-content: flex-start;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+  }
 `;
 
 const TextContainer = styled(motion.div)`
@@ -23,6 +31,13 @@ const Nav = styled.nav`
   justify-content: space-between;
   height: 300px;
   margin-right: 100px;
+
+  @media (max-width: 768px) {
+    flex-direction: row;
+    height: 60px;
+    width: 300px;
+    margin: 16px 0;
+  }
 `;
 
 interface NavLinkProps {
@@ -48,6 +63,11 @@ const NavLink = styled.button<NavLinkProps>`
       color: #000;
     }
   `}
+
+  @media (max-width: 768px) {
+    width: 60px;
+    height: 60px;
+  }
 `;
 
 interface TechnologyImage {
@@ -68,6 +88,18 @@ const TechnologyImage = styled(motion.div)<TechnologyImageProps>`
   right: 0;
   width: 450px;
   height: 450px;
+
+  @media (max-width: 1190px) {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    position: static;
+    display: block;
+    width: 100%;
+    height: 310px;
+    background-image: url(${(props: { image: TechnologyImage }) => props.image.landscape});
+  }
 `;
 
 function Technology() {

@@ -10,6 +10,11 @@ const ContainerSlide = styled.div`
   height: 100%;
   flex-direction: column;
   justify-content: space-around;
+  margin: 0 160px;
+
+  @media (max-width: 1300px) {
+    margin: 0 80px;
+  }
 
   @media (max-width: 768px) {
     align-items: center;
@@ -37,7 +42,7 @@ const CrewImage = styled(motion.img)`
   bottom: 0;
   right: 10%;
   height: calc(100vh - 160px);
-  @media (max-width: 1338px) {
+  @media (max-width: 1480px) {
     display: none;
   }
 

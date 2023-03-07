@@ -11,7 +11,6 @@ export const ContainerColumn = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin: 0 160px;
 `;
 
 export const ContainerCard = styled.div`
@@ -19,9 +18,14 @@ export const ContainerCard = styled.div`
   justify-content: space-around;
   align-items: center;
   height: 100%;
+  margin: 0 160px;
+
+  @media (max-width: 1300px) {
+    margin: 0 80px;
+  }
 
   @media (max-width: 768px) {
-    display: block;
+    flex-direction: column;
     text-align: center;
   }
 `;
