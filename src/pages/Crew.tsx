@@ -35,21 +35,36 @@ const TextContainer = styled(motion.div)`
   @media (max-width: 768px) {
     text-align: center;
   }
+
+  @media (max-width: 480px) {
+    p {
+      width: 320px;
+    }
+  }
 `;
 
 const CrewImage = styled(motion.img)`
   position: fixed;
   bottom: 0;
   right: 10%;
+  object-fit: contain;
   height: calc(100vh - 160px);
-  @media (max-width: 1480px) {
+  @media (max-width: 1360px) {
     display: none;
   }
 
   @media (max-width: 768px) {
     position: static;
     display: block;
-    height: 100%;
+    height: 400px;
+    width: 100%;
+    border-bottom: 2px solid #383B4B;
+    margin-top: 32px;
+  }
+
+  @media (max-width: 480px) {
+    height: 223px;
+    width: 100%;
   }
 `;
 
@@ -57,12 +72,16 @@ const RoleText = styled.h2`
   font-size: 32px;
   font-family: 'Bellefair', serif;
   color: #ffffff7f;
+
+  @media (max-width: 480px) {
+    font-size: 24px;
+  }
 `;
 
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
-  margin: 16px 0;
+  margin: 10px 0;
   width: 132px;
 `;
 
@@ -124,10 +143,13 @@ function Crew() {
         <strong>02</strong> MEET YOUR CREW
       </SubHeading>
       <ContainerSlide>
-        <TextContainer
-          animate={textAnimate}
+        <CrewImage
+          src={crew[activeCrew].images.webp}
+          alt={crew[activeCrew].name}
+          animate={imageAnimate}
           transition={{ duration: 0.2 }}
-        >
+        />
+        <TextContainer animate={textAnimate} transition={{ duration: 0.2 }}>
           <RoleText>{crew[activeCrew].role.toUpperCase()}</RoleText>
           <Title heading="h3">{crew[activeCrew].name.toUpperCase()}</Title>
           <p>{crew[activeCrew].bio}</p>
@@ -138,7 +160,6 @@ function Crew() {
           <NavLink onClick={() => handleActiveCrew(2)} active={activeCrew === 2} />
           <NavLink onClick={() => handleActiveCrew(3)} active={activeCrew === 3} />
         </Nav>
-        <CrewImage src={crew[activeCrew].images.webp} alt={crew[activeCrew].name} animate={imageAnimate} transition={{ duration: 0.2 }} />
       </ContainerSlide>
     </ContainerColumn>
   );
