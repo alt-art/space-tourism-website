@@ -23,6 +23,10 @@ const ContainerCardStyled = styled(ContainerCard)`
 
 const TextContainer = styled(motion.div)`
   width: 490px;
+
+  @media (max-width: 480px) {
+    width: 327px;
+  }
 `;
 
 const Nav = styled.nav`
@@ -38,6 +42,10 @@ const Nav = styled.nav`
     width: 300px;
     margin: 16px 0;
   }
+
+  @media (max-width: 480px) {
+    width: 152px;
+  }
 `;
 
 interface NavLinkProps {
@@ -49,7 +57,7 @@ const NavLink = styled.button<NavLinkProps>`
   justify-content: center;
   align-items: center;
   background: none;
-  border: 1px solid #ffffff;
+  border: 1px solid #ffffff3f;
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -67,6 +75,11 @@ const NavLink = styled.button<NavLinkProps>`
   @media (max-width: 768px) {
     width: 60px;
     height: 60px;
+  }
+
+  @media (max-width: 480px) {
+    width: 40px;
+    height: 40px;
   }
 `;
 
@@ -99,6 +112,10 @@ const TechnologyImage = styled(motion.div)<TechnologyImageProps>`
     width: 100%;
     height: 310px;
     background-image: url(${(props: { image: TechnologyImage }) => props.image.landscape});
+  }
+
+  @media (max-width: 480px) {
+    height: 170px;
   }
 `;
 

@@ -45,9 +45,9 @@ const Title = styled.h1<StyledTitleProps>`
         case 'h2':
           return 'font-size: 60px';
         case 'h3':
-          return 'font-size: 32px';
+          return 'font-size: 28px';
         case 'h4':
-          return 'font-size: 24px';
+          return 'font-size: 20px';
         default:
           return 'font-size: 80px';
       }
