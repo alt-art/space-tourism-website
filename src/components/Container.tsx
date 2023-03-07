@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Container = styled.div`
   display: flex;
   justify-content: space-around;
-  height: 100%;
+  height: calc(100% - 80px);
   padding-top: 160px;
 
   @media (max-width: 480px) {
