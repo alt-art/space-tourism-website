@@ -1,7 +1,10 @@
+import { AnimatePresence } from 'framer-motion';
 import { Outlet, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import Container from './components/Container';
 import Header from './components/Header';
+import NavModal from './components/NavModal';
+import { ModalContext, ModalContextProvider } from './context/ModalContext';
 
 interface AppStylesProps {
   location: string;
@@ -27,10 +30,17 @@ function App() {
     <AppStyles
       location={location.pathname === '/' ? 'home' : location.pathname.split('/')[1]}
     >
-      <Header />
-      <Container>
-        <Outlet />
-      </Container>
+      <ModalContextProvider>
+        <Header />
+        <ModalContext.Consumer>
+          {({ isOpenedModal }) => (
+            <AnimatePresence>{isOpenedModal && <NavModal />}</AnimatePresence>
+          )}
+        </ModalContext.Consumer>
+        <Container>
+          <Outlet />
+        </Container>
+      </ModalContextProvider>
     </AppStyles>
   );
 }

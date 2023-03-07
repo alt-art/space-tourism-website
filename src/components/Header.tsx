@@ -1,8 +1,9 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useContext, useEffect, useMemo, useState } from 'react';
 import styled from "styled-components";
 import logo from "../assets/icons/logo.svg";
 import NavLink from "./NavLink";
 import hamburgerIcon from "../assets/icons/icon-hamburger.svg";
+import { ModalContext } from '../context/ModalContext';
 
 const HeaderStyled = styled.header`
   display: flex;
@@ -61,6 +62,7 @@ const NavModalButton = styled.button`
 `;
 
 function Header() {
+  const { setIsOpenedModal } = useContext(ModalContext);
   const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -68,6 +70,12 @@ function Header() {
   }, []);
   
   const isMobile = useMemo(() => width < 535, [width]);
+
+  useEffect(() => {
+    if (!isMobile) {
+      setIsOpenedModal(false);
+    }
+  }, [isMobile, setIsOpenedModal]);
 
   return (
     <HeaderStyled>
@@ -89,7 +97,7 @@ function Header() {
         </NavLink>
       </Nav>
       ) : (
-        <NavModalButton />
+        <NavModalButton onClick={() => setIsOpenedModal(true)} />
       )}
     </HeaderStyled>
   );

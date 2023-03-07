@@ -19,6 +19,7 @@
   "rules": {
     // suppress errors for missing 'import React' in files
     "react/react-in-jsx-scope": "off",
-    "semi": [2, "always"]
+    "semi": [2, "always"],
+    "@typescript-eslint/no-empty-function": "off"
   }
 }
