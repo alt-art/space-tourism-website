@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { ModalContext } from '../context/ModalContext';
 
 interface NavLinkStyledProps {
   active: boolean;
@@ -41,14 +43,20 @@ interface NavLinkProps {
 }
 
 function NavLinkModal({ to, children }: NavLinkProps) {
+  const { setIsOpenedModal } = useContext(ModalContext);
   const location = useLocation();
   const navigate = useNavigate();
   const active =
     (location.pathname.startsWith(to) && !(to.length === 1)) ||
     location.pathname === to;
 
+  function handleClick() {
+    navigate(to);
+    setIsOpenedModal(false);
+  }
+
   return (
-    <NavLinkModalStyled active={active} onClick={() => navigate(to)}>
+    <NavLinkModalStyled active={active} onClick={handleClick}>
       {children}
     </NavLinkModalStyled>
   );
